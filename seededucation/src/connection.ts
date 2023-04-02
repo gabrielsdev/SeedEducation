@@ -124,6 +124,6 @@ export default class Conn {
 
     public async buyToken(id: number) {
         let address = await this.tokenSCConnected.TokenCreator(id);
-        return await this.opSCConnected.BuyToken(address, id);
+        return await this.opSCConnected.BuyToken(id, address);
     }
 }
