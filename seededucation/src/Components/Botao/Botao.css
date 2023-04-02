@@ -1,0 +1,30 @@
+button {
+    padding: 24px;
+    background-color: green;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #065806;
+}
+
+button.disable{
+    background-color: red;
+}
+
+button.disable:hover {
+    background-color: hsl(0deg 92% 30%);
+}
+
+button.approve{
+    background-color: blue;
+    margin-right: 20px;
+}
+
+button.approve:hover{
+    background-color: #00008b;
+}

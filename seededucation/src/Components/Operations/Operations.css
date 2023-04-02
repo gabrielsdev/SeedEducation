@@ -1,0 +1,23 @@
+.operacoes {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.operacoes > div {
+    background-color: #f2f2f2;
+    border-radius: 20px;
+    padding: 36px 64px;
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.usuario {
+    width: 33%;
+    margin: 20px;
+    margin-bottom: 60px;
+}
+
+.inst {
+    margin: 80px;
+    width: 70%;
+}

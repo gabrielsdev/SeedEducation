@@ -1,0 +1,8 @@
+.campo-texto-botao {
+    margin: 40px 0;
+    width: 100%;
+}
+
+.campo-texto-botao CampoTexto, Botao {
+    margin: 0;
+}

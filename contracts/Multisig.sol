@@ -38,7 +38,7 @@ contract Multisig {
         _;
     }
 
-    constructor(address _institutionContractAddress) public {
+    constructor(address _institutionContractAddress) {
         institutionContractAddress = _institutionContractAddress;
         qualifiedMajority = true;
     }

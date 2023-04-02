@@ -41,7 +41,12 @@ contract Institutions is Multisig {
         }
     }
 
-    constructor() Multisig(address(this)) {}
+    constructor() Multisig(address(this)) {
+        adminsInstitutionsList.push(msg.sender);
+        adminsInstitutions[msg.sender] = adminsInstitutionsList.length;
+        institutionsList.push(msg.sender);
+        institutions[msg.sender] = institutionsList.length;
+    }
 
     function isAuthorizedAdmin(address _address) public view returns (bool) {
         return adminsInstitutions[_address] != 0;
@@ -59,7 +64,7 @@ contract Institutions is Multisig {
         return institutionsList;
     }
 
-    function addAdmin(address _account) onlyAdmin multisigTx(ADD_ADMIN, _account) external returns (bool result){
+    function addAdmin(address _account) onlyAdmin multisigTx(ADD_ADMIN, _account) public returns (bool result){
         if (adminsInstitutions[_account] == 0) {
             adminsInstitutionsList.push(_account);
             adminsInstitutions[_account] = adminsInstitutionsList.length;
