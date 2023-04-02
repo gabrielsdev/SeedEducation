@@ -1,4 +1,5 @@
 # SeedEducation 📚
+![](https://i.imgur.com/L022jvE.png)
 
 É uma solução em blockchain para financiar projetos de estudantes através de investidores anjos, usando um dApp.
 
