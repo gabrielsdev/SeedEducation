@@ -124,6 +124,8 @@ export default class Conn {
 
     public async buyToken(id: number) {
         let address = await this.tokenSCConnected.TokenCreator(id);
-        return await this.opSCConnected.BuyToken(id, address);
+        const options = {value: ethers.utils.parseEther("1.0")};
+        console.log(address);
+        return await this.opSCConnected.BuyToken(id, address, options);
     }
 }
