@@ -3,14 +3,15 @@ pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "./institutions.sol";
+import "./Institutions.sol";
 
 contract Token is ERC1155, Ownable  {
     mapping(uint256 => string) public hashOfDoc;   
     mapping(uint256 => address) public TokenCreator;
     mapping(uint256 => uint256) public tokenPrice;
     mapping(uint256 => uint256) public tokenTotal;
-    address public institutions;    
+    address public institutions;
+    uint256 public count ;
 
     constructor(address _institutions) ERC1155("") {
         institutions = _institutions;
@@ -34,15 +35,16 @@ contract Token is ERC1155, Ownable  {
         Ownable(msg.sender)
         public
     {
-        tokenPrice[id] = price;
-        createhashOfDoc(id, hash);
-        _mint(msg.sender, id, amount,"");
-        tokenTotal[id] +=  amount;
+        tokenPrice[count] = price;
+        createhashOfDoc(count, hash);
+        _mint(msg.sender, count, amount,"");
+        tokenTotal[count] +=  amount;
+        count++;
         
     }    
     function mintBatch(address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
-        Ownable()
-        public       
+        public
+               
     {
         //_mintBatch(to, ids, amounts, data);
     }
