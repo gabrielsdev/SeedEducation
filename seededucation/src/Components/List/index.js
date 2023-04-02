@@ -21,7 +21,7 @@ const List = () => {
     for (let i = 0; i < total; i++) {
 
       const invest = async () => {
-        await conn.obtainMPE1(i);
+        await conn.buyToken(i);
       }
       cards.push(<Card key={i} submit={invest} name={i}></Card>)
     }

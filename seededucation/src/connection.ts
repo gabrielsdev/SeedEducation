@@ -120,9 +120,10 @@ export default class Conn {
 
     //public async hashOfDoc() {
         //return await this.tokenSCConnected.hashOfDoc();
-    //}
-
-    //public async buyToken() {
-        //return await this.opSCConnected.BuyToken();
     //}*/
+
+    public async buyToken(id: number) {
+        let address = await this.tokenSCConnected.TokenCreator(id);
+        return await this.opSCConnected.BuyToken(address, id);
+    }
 }
