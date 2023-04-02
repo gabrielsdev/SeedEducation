@@ -22,7 +22,7 @@ contract Token is ERC1155, Ownable  {
         _;
     }
     modifier Ownable(address _owner){
-        require(Institutions(institutions).isAuthorized(_owner));
+        //require(Institutions(institutions).isAuthorized(_owner));
         _;
     }
 
@@ -31,12 +31,13 @@ contract Token is ERC1155, Ownable  {
         _setURI(newuri);
     }
 
-    function mint( uint256 id, uint256 amount,uint256 price, string memory hash)
+    function mint(  uint256 amount,uint256 price, string memory hash)
         Ownable(msg.sender)
         public
     {
-        tokenPrice[count] = price;
+        tokenPrice[count] += price;
         createhashOfDoc(count, hash);
+        TokenCreator[count] = msg.sender;
         _mint(msg.sender, count, amount,"");
         tokenTotal[count] +=  amount;
         count++;
@@ -56,5 +57,14 @@ contract Token is ERC1155, Ownable  {
     }
     function burn( address account, uint256 id, uint256 amount) public onlyOwner{
         _burn( account,  id,  amount);
+    }
+     function safeTransferFrom(
+        address from,
+        address to,
+        uint256 id,
+        uint256 amount,
+        bytes memory data
+    ) public virtual override  {
+        _safeTransferFrom(from,to,id,amount,"");
     }
 }
